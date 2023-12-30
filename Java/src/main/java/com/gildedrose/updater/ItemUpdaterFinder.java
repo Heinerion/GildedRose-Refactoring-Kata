@@ -10,6 +10,9 @@ public final class ItemUpdaterFinder {
         if (item.isBackstagePasses()) {
             return new BackstagePassUpdater();
         }
+        if (item.isSulfuras()) {
+            return new SulfurnasUpdater();
+        }
         return new DefaultUpdater();
     }
 }
