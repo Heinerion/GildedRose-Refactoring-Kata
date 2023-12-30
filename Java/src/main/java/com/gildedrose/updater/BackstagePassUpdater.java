@@ -1,30 +1,30 @@
 package com.gildedrose.updater;
 
+import com.gildedrose.Quality;
+
 final class BackstagePassUpdater implements ItemUpdater {
+    private static final int DOUBLE_QUALITY_DAYS = 10;
+    private static final int TRIPLE_QUALITY_DAYS = 5;
+    private static final int EXPIRED_DAYS = 0;
+
     private final DefaultUpdater defaultUpdater = new DefaultUpdater();
 
     public int determineNewQuality(int quality, int sellIn) {
-        if (quality >= 50) {
-            return quality;
-        }
-
-        return quality + determineQualityBonus(quality, sellIn);
+        return Math.min(
+            Quality.MAX,
+            quality + determineLastMinuteBonus(sellIn));
     }
 
-    private static int determineQualityBonus(int quality, int sellIn) {
-        int bonus = 1;
-
-        if (sellIn < 11
-            && quality + bonus < 50) {
-            bonus++;
+    private static int determineLastMinuteBonus(int daysLeft) {
+        if (daysLeft <= TRIPLE_QUALITY_DAYS) {
+            return 3;
         }
 
-        if (sellIn < 6
-            && quality + bonus < 50) {
-            bonus++;
+        if (daysLeft <= DOUBLE_QUALITY_DAYS) {
+            return 2;
         }
 
-        return bonus;
+        return 1;
     }
 
     @Override
@@ -34,8 +34,8 @@ final class BackstagePassUpdater implements ItemUpdater {
 
     @Override
     public int determineQualityBySellIn(int quality, int sellIn) {
-        return sellIn >= 0
+        return sellIn >= EXPIRED_DAYS
             ? quality
-            : 0;
+            : Quality.MIN;
     }
 }
