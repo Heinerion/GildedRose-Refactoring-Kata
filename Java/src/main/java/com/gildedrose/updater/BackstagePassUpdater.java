@@ -8,17 +8,15 @@ final class BackstagePassUpdater implements ItemUpdater {
         if (quality < 50) {
             quality = quality + 1;
 
-            if (item.isBackstagePasses()) {
-                if (item.sellIn < 11) {
-                    if (quality < 50) {
-                        quality = quality + 1;
-                    }
+            if (item.sellIn < 11) {
+                if (quality < 50) {
+                    quality = quality + 1;
                 }
+            }
 
-                if (item.sellIn < 6) {
-                    if (quality < 50) {
-                        quality = quality + 1;
-                    }
+            if (item.sellIn < 6) {
+                if (quality < 50) {
+                    quality = quality + 1;
                 }
             }
         }
