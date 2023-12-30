@@ -17,6 +17,12 @@ class GildedRose {
     }
 
     private static void updateQuality(Item item) {
+        handleWhatever(item);
+        handleSulfurasSellIn(item);
+        handleNegativeSellIn(item);
+    }
+
+    private static void handleWhatever(Item item) {
         if (!item.name.equals(AGED_BRIE)
                 && !item.name.equals(BACKSTAGE_PASSES)) {
             if (item.quality > 0) {
@@ -43,11 +49,15 @@ class GildedRose {
                 }
             }
         }
+    }
 
+    private static void handleSulfurasSellIn(Item item) {
         if (!item.name.equals(SULFURAS)) {
             item.sellIn = item.sellIn - 1;
         }
+    }
 
+    private static void handleNegativeSellIn(Item item) {
         if (item.sellIn < 0) {
             if (!item.name.equals(AGED_BRIE)) {
                 if (!item.name.equals(BACKSTAGE_PASSES)) {
