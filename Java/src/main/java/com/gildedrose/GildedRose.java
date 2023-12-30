@@ -19,16 +19,16 @@ class GildedRose {
         ItemUpdater updater = ItemUpdaterFinder
             .forItem(item);
         item.quality = updater.determineNewQuality(item);
-        reduceSellIn(item);
+        item.sellIn = reduceSellIn(item);
         handleNegativeSellIn(item);
     }
 
-    private static void reduceSellIn(Item item) {
+    private static int reduceSellIn(Item item) {
         if (item.isSulfuras()) {
-            return;
+            return item.sellIn;
         }
 
-        item.sellIn = item.sellIn - 1;
+        return item.sellIn - 1;
     }
 
     private static void handleNegativeSellIn(Item item) {
