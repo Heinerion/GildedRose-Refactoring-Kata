@@ -14,12 +14,12 @@ class GildedRose {
     }
 
     private static void updateQuality(Item item) {
-        handleWhatever(item);
+        determineNewQuality(item);
         reduceSellIn(item);
         handleNegativeSellIn(item);
     }
 
-    private static void handleWhatever(Item item) {
+    private static void determineNewQuality(Item item) {
         if (item.isAgedBrie()
             || item.isBackstagePasses()) {
             if (item.quality < 50) {
