@@ -1,8 +1,10 @@
 package com.gildedrose.updater;
 
+import com.gildedrose.Quality;
+
 final class DefaultUpdater implements ItemUpdater {
     public int determineNewQuality(int quality, int sellIn) {
-        return quality > 0
+        return quality > Quality.MIN
             ? quality - 1
             : quality;
     }

@@ -1,10 +1,12 @@
 package com.gildedrose.updater;
 
+import com.gildedrose.Quality;
+
 final class BrieUpdater implements ItemUpdater {
     private final DefaultUpdater defaultUpdater = new DefaultUpdater();
 
     public int determineNewQuality(int quality, int sellIn) {
-        return quality < 50
+        return quality < Quality.MAX
             ? quality + 1
             : quality;
     }
