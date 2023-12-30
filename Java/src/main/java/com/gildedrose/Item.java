@@ -1,8 +1,11 @@
 package com.gildedrose;
 
 public class Item {
+    private static final String AGED_BRIE = "Aged Brie";
+    private static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
+    private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
 
-    public String name;
+    private final String name;
 
     public int sellIn;
 
@@ -12,6 +15,18 @@ public class Item {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
+    }
+
+    public boolean isAgedBrie() {
+        return AGED_BRIE.equals(name);
+    }
+
+    public boolean isBackstagePasses() {
+        return BACKSTAGE_PASSES.equals(name);
+    }
+
+    public boolean isSulfuras() {
+        return SULFURAS.equals(name);
     }
 
    @Override
