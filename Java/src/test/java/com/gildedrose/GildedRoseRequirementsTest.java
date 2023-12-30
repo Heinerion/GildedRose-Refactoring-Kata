@@ -77,7 +77,7 @@ class GildedRoseRequirementsTest {
         new GildedRose(items).updateQuality();
 
         assertEquals(10, items[0].sellIn);
-        assertEquals(50, items[0].quality);
+        assertEquals(Quality.SULFURAS, items[0].quality, Items.SULFURAS + "' quality is always " + Quality.SULFURAS);
     }
 
     @Test

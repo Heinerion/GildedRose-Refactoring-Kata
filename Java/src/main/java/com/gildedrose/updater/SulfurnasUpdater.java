@@ -1,8 +1,10 @@
 package com.gildedrose.updater;
 
+import com.gildedrose.Quality;
+
 final class SulfurnasUpdater implements ItemUpdater {
     public int determineNewQuality(int quality, int sellIn) {
-        return quality;
+        return Quality.SULFURAS;
     }
 
     @Override
@@ -12,6 +14,6 @@ final class SulfurnasUpdater implements ItemUpdater {
 
     @Override
     public int determineQualityBySellIn(int quality, int sellIn) {
-        return quality;
+        return Quality.SULFURAS;
     }
 }
