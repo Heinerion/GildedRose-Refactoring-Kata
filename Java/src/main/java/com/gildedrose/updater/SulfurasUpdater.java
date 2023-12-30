@@ -2,7 +2,7 @@ package com.gildedrose.updater;
 
 import com.gildedrose.Quality;
 
-final class SulfurnasUpdater implements ItemUpdater {
+final class SulfurasUpdater implements ItemUpdater {
     public int determineNewQuality(int quality, int sellIn) {
         return Quality.SULFURAS;
     }

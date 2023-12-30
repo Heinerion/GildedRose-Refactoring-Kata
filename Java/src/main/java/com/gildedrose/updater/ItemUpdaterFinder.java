@@ -11,7 +11,7 @@ public final class ItemUpdaterFinder {
             return new BackstagePassUpdater();
         }
         if (Items.isSulfuras(item)) {
-            return new SulfurnasUpdater();
+            return new SulfurasUpdater();
         }
         return new DefaultUpdater();
     }
