@@ -10,8 +10,8 @@ final class DefaultUpdater implements ItemUpdater {
     }
 
     @Override
-    public int reduceSellIn(int sellIn) {
-        return sellIn - 1;
+    public int determineSellInDecrease() {
+        return 1;
     }
 
     @Override

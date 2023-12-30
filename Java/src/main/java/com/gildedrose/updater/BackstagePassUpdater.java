@@ -28,8 +28,8 @@ final class BackstagePassUpdater implements ItemUpdater {
     }
 
     @Override
-    public int reduceSellIn(int sellIn) {
-        return defaultUpdater.reduceSellIn(sellIn);
+    public int determineSellInDecrease() {
+        return defaultUpdater.determineSellInDecrease();
     }
 
     @Override

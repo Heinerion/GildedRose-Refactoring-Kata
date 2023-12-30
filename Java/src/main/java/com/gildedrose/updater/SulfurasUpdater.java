@@ -8,8 +8,8 @@ final class SulfurasUpdater implements ItemUpdater {
     }
 
     @Override
-    public int reduceSellIn(int sellIn) {
-        return sellIn;
+    public int determineSellInDecrease() {
+        return 0;
     }
 
     @Override

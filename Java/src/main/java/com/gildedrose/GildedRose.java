@@ -19,7 +19,7 @@ class GildedRose {
         ItemUpdater updater = ItemUpdaterFinder
             .forItem(item);
         item.quality = updater.determineNewQuality(item.quality, item.sellIn);
-        item.sellIn = updater.reduceSellIn(item.sellIn);
+        item.sellIn -= updater.determineSellInDecrease();
         item.quality = updater.determineQualityBySellIn(item.quality, item.sellIn);
     }
 }
