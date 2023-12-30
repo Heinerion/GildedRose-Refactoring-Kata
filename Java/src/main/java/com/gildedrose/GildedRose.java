@@ -18,8 +18,8 @@ class GildedRose {
     private static void updateQuality(Item item) {
         ItemUpdater updater = ItemUpdaterFinder
             .forItem(item);
-        item.quality = updater.determineNewQuality(item);
-        item.sellIn = updater.reduceSellIn(item);
-        item.quality = updater.determineQualityBySellIn(item);
+        item.quality = updater.determineNewQuality(item.quality, item.sellIn);
+        item.sellIn = updater.reduceSellIn(item.sellIn);
+        item.quality = updater.determineQualityBySellIn(item.quality, item.sellIn);
     }
 }

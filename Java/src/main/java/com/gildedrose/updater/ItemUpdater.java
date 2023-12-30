@@ -1,11 +1,9 @@
 package com.gildedrose.updater;
 
-import com.gildedrose.Item;
-
 public interface ItemUpdater {
-    int determineNewQuality(Item item);
+    int determineNewQuality(int quality, int sellIn);
 
-    int reduceSellIn(Item item);
+    int reduceSellIn(int sellIn);
 
-    int determineQualityBySellIn(Item item);
+    int determineQualityBySellIn(int quality, int sellIn);
 }

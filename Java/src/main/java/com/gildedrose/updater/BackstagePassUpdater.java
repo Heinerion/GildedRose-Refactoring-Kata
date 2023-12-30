@@ -1,17 +1,14 @@
 package com.gildedrose.updater;
 
-import com.gildedrose.Item;
-
 final class BackstagePassUpdater implements ItemUpdater {
     private final DefaultUpdater defaultUpdater = new DefaultUpdater();
 
-    public int determineNewQuality(Item item) {
-        int quality = item.quality;
+    public int determineNewQuality(int quality, int sellIn) {
         if (quality >= 50) {
             return quality;
         }
 
-        return quality + determineQualityBonus(quality, item.sellIn);
+        return quality + determineQualityBonus(quality, sellIn);
     }
 
     private static int determineQualityBonus(int quality, int sellIn) {
@@ -31,14 +28,14 @@ final class BackstagePassUpdater implements ItemUpdater {
     }
 
     @Override
-    public int reduceSellIn(Item item) {
-        return defaultUpdater.reduceSellIn(item);
+    public int reduceSellIn(int sellIn) {
+        return defaultUpdater.reduceSellIn(sellIn);
     }
 
     @Override
-    public int determineQualityBySellIn(Item item) {
-        return item.sellIn >= 0
-            ? item.quality
+    public int determineQualityBySellIn(int quality, int sellIn) {
+        return sellIn >= 0
+            ? quality
             : 0;
     }
 }

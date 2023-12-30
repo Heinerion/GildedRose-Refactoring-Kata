@@ -1,19 +1,17 @@
 package com.gildedrose.updater;
 
-import com.gildedrose.Item;
-
 final class SulfurnasUpdater implements ItemUpdater {
-    public int determineNewQuality(Item item) {
-        return item.quality;
+    public int determineNewQuality(int quality, int sellIn) {
+        return quality;
     }
 
     @Override
-    public int reduceSellIn(Item item) {
-        return item.sellIn;
+    public int reduceSellIn(int sellIn) {
+        return sellIn;
     }
 
     @Override
-    public int determineQualityBySellIn(Item item) {
-        return item.quality;
+    public int determineQualityBySellIn(int quality, int sellIn) {
+        return quality;
     }
 }
