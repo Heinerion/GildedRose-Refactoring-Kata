@@ -16,7 +16,7 @@ class GildedRoseTest {
 
     @Test
     void sulfurasDoesNotLooseSellInValue() {
-        Item[] items = new Item[]{new Item(Item.SULFURAS, 0, 0)};
+        Item[] items = new Item[]{new Item(Items.SULFURAS, 0, 0)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(0, items[0].sellIn);
@@ -24,7 +24,7 @@ class GildedRoseTest {
 
     @Test
     void brieOfPoorQualityGetsBetter() {
-        Item[] items = new Item[]{new Item(Item.AGED_BRIE, 0, 49)};
+        Item[] items = new Item[]{new Item(Items.AGED_BRIE, 0, 49)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(50, items[0].quality);
@@ -32,7 +32,7 @@ class GildedRoseTest {
 
     @Test
     void brieOfModestQualityStaysTheSame() {
-        Item[] items = new Item[]{new Item(Item.AGED_BRIE, 0, 50)};
+        Item[] items = new Item[]{new Item(Items.AGED_BRIE, 0, 50)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(50, items[0].quality);
@@ -40,7 +40,7 @@ class GildedRoseTest {
 
     @Test
     void brieOfHighQualityStaysTheSame() {
-        Item[] items = new Item[]{new Item(Item.AGED_BRIE, 0, 99)};
+        Item[] items = new Item[]{new Item(Items.AGED_BRIE, 0, 99)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(99, items[0].quality);

@@ -1,16 +1,16 @@
 package com.gildedrose.updater;
 
-import com.gildedrose.Item;
+import com.gildedrose.*;
 
 public final class ItemUpdaterFinder {
     public static ItemUpdater forItem(Item item) {
-        if (item.isAgedBrie()) {
+        if (Items.isAgedBrie(item)) {
             return new BrieUpdater();
         }
-        if (item.isBackstagePasses()) {
+        if (Items.isBackstagePasses(item)) {
             return new BackstagePassUpdater();
         }
-        if (item.isSulfuras()) {
+        if (Items.isSulfuras(item)) {
             return new SulfurnasUpdater();
         }
         return new DefaultUpdater();
