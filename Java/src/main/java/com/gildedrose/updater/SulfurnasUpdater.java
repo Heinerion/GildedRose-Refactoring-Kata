@@ -11,4 +11,9 @@ final class SulfurnasUpdater implements ItemUpdater {
     public int reduceSellIn(Item item) {
         return item.sellIn;
     }
+
+    @Override
+    public int determineQualityBySellIn(Item item) {
+        return item.quality;
+    }
 }

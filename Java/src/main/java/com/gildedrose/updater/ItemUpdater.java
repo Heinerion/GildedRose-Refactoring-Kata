@@ -6,4 +6,6 @@ public interface ItemUpdater {
     int determineNewQuality(Item item);
 
     int reduceSellIn(Item item);
+
+    int determineQualityBySellIn(Item item);
 }

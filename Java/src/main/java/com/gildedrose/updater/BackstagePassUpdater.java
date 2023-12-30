@@ -34,4 +34,11 @@ final class BackstagePassUpdater implements ItemUpdater {
     public int reduceSellIn(Item item) {
         return defaultUpdater.reduceSellIn(item);
     }
+
+    @Override
+    public int determineQualityBySellIn(Item item) {
+        return item.sellIn >= 0
+            ? item.quality
+            : 0;
+    }
 }

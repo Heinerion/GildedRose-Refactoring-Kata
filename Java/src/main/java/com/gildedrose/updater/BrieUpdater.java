@@ -16,4 +16,17 @@ final class BrieUpdater implements ItemUpdater {
     public int reduceSellIn(Item item) {
         return defaultUpdater.reduceSellIn(item);
     }
+
+    @Override
+    public int determineQualityBySellIn(Item item) {
+        int quality = item.quality;
+        if (item.sellIn >= 0) {
+            return quality;
+        }
+
+        if (quality < 50) {
+            return quality + 1;
+        }
+        return quality;
+    }
 }
