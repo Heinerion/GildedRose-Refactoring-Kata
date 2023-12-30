@@ -67,17 +67,19 @@ class GildedRose {
             if (item.quality < 50) {
                 item.quality = item.quality + 1;
             }
-        } else {
-            if (item.isBackstagePasses()) {
-                item.quality = item.quality - item.quality;
-            } else {
-                if (item.quality > 0) {
-                    if (item.isSulfuras()) {
-                        return;
-                    }
-                    item.quality = item.quality - 1;
-                }
+            return;
+        }
+
+        if (item.isBackstagePasses()) {
+            item.quality = item.quality - item.quality;
+            return;
+        }
+
+        if (item.quality > 0) {
+            if (item.isSulfuras()) {
+                return;
             }
+            item.quality = item.quality - 1;
         }
     }
 }
