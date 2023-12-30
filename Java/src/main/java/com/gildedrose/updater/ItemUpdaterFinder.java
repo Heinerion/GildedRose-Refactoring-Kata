@@ -4,6 +4,9 @@ import com.gildedrose.Item;
 
 public final class ItemUpdaterFinder {
     public static ItemUpdater forItem(Item item) {
+        if (item.isAgedBrie()) {
+            return new BrieUpdater();
+        }
         return new DefaultUpdater();
     }
 }

@@ -5,8 +5,7 @@ import com.gildedrose.Item;
 final class DefaultUpdater implements ItemUpdater {
     public int determineNewQuality(Item item) {
         int quality = item.quality;
-        if (item.isAgedBrie()
-            || item.isBackstagePasses()) {
+        if (item.isBackstagePasses()) {
             if (quality < 50) {
                 quality = quality + 1;
 
