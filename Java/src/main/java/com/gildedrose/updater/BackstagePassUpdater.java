@@ -3,6 +3,8 @@ package com.gildedrose.updater;
 import com.gildedrose.Item;
 
 final class BackstagePassUpdater implements ItemUpdater {
+    private final DefaultUpdater defaultUpdater = new DefaultUpdater();
+
     public int determineNewQuality(Item item) {
         int quality = item.quality;
         if (quality >= 50) {
@@ -26,5 +28,10 @@ final class BackstagePassUpdater implements ItemUpdater {
         }
 
         return bonus;
+    }
+
+    @Override
+    public int reduceSellIn(Item item) {
+        return defaultUpdater.reduceSellIn(item);
     }
 }

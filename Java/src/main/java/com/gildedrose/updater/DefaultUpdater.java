@@ -9,4 +9,9 @@ final class DefaultUpdater implements ItemUpdater {
             ? quality - 1
             : quality;
     }
+
+    @Override
+    public int reduceSellIn(Item item) {
+        return item.sellIn - 1;
+    }
 }
