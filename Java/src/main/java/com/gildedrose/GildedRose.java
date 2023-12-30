@@ -15,7 +15,7 @@ class GildedRose {
 
     private static void updateQuality(Item item) {
         handleWhatever(item);
-        handleSulfurasSellIn(item);
+        reduceSellIn(item);
         handleNegativeSellIn(item);
     }
 
@@ -50,7 +50,7 @@ class GildedRose {
         }
     }
 
-    private static void handleSulfurasSellIn(Item item) {
+    private static void reduceSellIn(Item item) {
         if (item.isSulfuras()) {
             return;
         }
