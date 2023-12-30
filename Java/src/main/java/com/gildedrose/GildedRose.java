@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-import com.gildedrose.updater.ItemUpdaterFinder;
+import com.gildedrose.updater.*;
 
 class GildedRose {
     Item[] items;
@@ -16,15 +16,11 @@ class GildedRose {
     }
 
     private static void updateQuality(Item item) {
-        item.quality = determineNewQuality(item);
+        ItemUpdater updater = ItemUpdaterFinder
+            .forItem(item);
+        item.quality = updater.determineNewQuality(item);
         reduceSellIn(item);
         handleNegativeSellIn(item);
-    }
-
-    private static int determineNewQuality(Item item) {
-        return ItemUpdaterFinder
-            .forItem(item)
-            .determineNewQuality(item);
     }
 
     private static void reduceSellIn(Item item) {
