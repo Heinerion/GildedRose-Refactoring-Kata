@@ -20,39 +20,33 @@ class GildedRose {
             .forItem(item);
         item.quality = updater.determineNewQuality(item);
         item.sellIn = updater.reduceSellIn(item);
-        handleNegativeSellIn(item);
+        item.quality = determineQualityBySellIn(item);
     }
 
-    private static int reduceSellIn(Item item) {
-        if (item.isSulfuras()) {
-            return item.sellIn;
-        }
-
-        return item.sellIn - 1;
-    }
-
-    private static void handleNegativeSellIn(Item item) {
+    private static int determineQualityBySellIn(Item item) {
+        int quality = item.quality;
         if (item.sellIn >= 0) {
-            return;
+            return quality;
         }
 
         if (item.isAgedBrie()) {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
+            if (quality < 50) {
+                return quality + 1;
             }
-            return;
+            return quality;
         }
 
         if (item.isBackstagePasses()) {
-            item.quality = item.quality - item.quality;
-            return;
+            return quality - quality;
         }
 
         if (item.quality > 0) {
             if (item.isSulfuras()) {
-                return;
+                return quality;
             }
-            item.quality = item.quality - 1;
+            return quality - 1;
         }
+
+        return quality;
     }
 }
