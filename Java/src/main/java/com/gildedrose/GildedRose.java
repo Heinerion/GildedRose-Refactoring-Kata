@@ -14,40 +14,42 @@ class GildedRose {
     }
 
     private static void updateQuality(Item item) {
-        determineNewQuality(item);
+        item.quality = determineNewQuality(item);
         reduceSellIn(item);
         handleNegativeSellIn(item);
     }
 
-    private static void determineNewQuality(Item item) {
+    private static int determineNewQuality(Item item) {
+        int quality = item.quality;
         if (item.isAgedBrie()
             || item.isBackstagePasses()) {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
+            if (quality < 50) {
+                quality = quality + 1;
 
                 if (item.isBackstagePasses()) {
                     if (item.sellIn < 11) {
-                        if (item.quality < 50) {
-                            item.quality = item.quality + 1;
+                        if (quality < 50) {
+                            quality = quality + 1;
                         }
                     }
 
                     if (item.sellIn < 6) {
-                        if (item.quality < 50) {
-                            item.quality = item.quality + 1;
+                        if (quality < 50) {
+                            quality = quality + 1;
                         }
                     }
                 }
             }
         } else {
-            if (item.quality > 0) {
+            if (quality > 0) {
                 if (item.isSulfuras()) {
-                    return;
+                    return quality;
                 }
 
-                item.quality = item.quality - 1;
+                quality = quality - 1;
             }
         }
+        return quality;
     }
 
     private static void reduceSellIn(Item item) {
