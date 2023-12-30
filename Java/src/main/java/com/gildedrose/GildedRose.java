@@ -21,7 +21,7 @@ class GildedRose {
 
     private static void handleWhatever(Item item) {
         if (!item.isAgedBrie()
-                && !item.isBackstagePasses()) {
+            && !item.isBackstagePasses()) {
             if (item.quality > 0) {
                 if (!item.isSulfuras()) {
                     item.quality = item.quality - 1;
