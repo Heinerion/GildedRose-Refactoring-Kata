@@ -20,9 +20,6 @@ final class BrieUpdater implements ItemUpdater {
             return quality;
         }
 
-        if (quality < 50) {
-            return quality + 1;
-        }
-        return quality;
+        return determineNewQuality(quality, sellIn);
     }
 }

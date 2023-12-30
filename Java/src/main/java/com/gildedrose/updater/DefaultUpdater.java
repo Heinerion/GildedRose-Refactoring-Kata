@@ -18,8 +18,6 @@ final class DefaultUpdater implements ItemUpdater {
             return quality;
         }
 
-        return quality > 0
-            ? quality - 1
-            : quality;
+        return determineNewQuality(quality, sellIn);
     }
 }
