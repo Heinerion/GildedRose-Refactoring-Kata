@@ -8,15 +8,15 @@ public class Items {
 
 
     public static boolean isAgedBrie(Item item) {
-        return Items.AGED_BRIE.equals(item.name);
+        return AGED_BRIE.equals(item.name);
     }
 
     public static boolean isBackstagePasses(Item item) {
-        return Items.BACKSTAGE_PASSES.equals(item.name);
+        return BACKSTAGE_PASSES.equals(item.name);
     }
 
     public static boolean isSulfuras(Item item) {
-        return Items.SULFURAS.equals(item.name);
+        return SULFURAS.equals(item.name);
     }
 
     public static boolean isConjured(Item item) {
