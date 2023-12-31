@@ -11,13 +11,12 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            updateQuality(item);
+            ageItem(item);
         }
     }
 
-    private static void updateQuality(Item item) {
-        ItemUpdater updater = ItemUpdaterFinder
-            .forItem(item);
+    private static void ageItem(Item item) {
+        ItemUpdater updater = ItemUpdaterFinder.forItem(item);
         item.sellIn -= updater.determineSellInDecrease();
         item.quality = updater.determineQuality(item.quality, item.sellIn);
     }
