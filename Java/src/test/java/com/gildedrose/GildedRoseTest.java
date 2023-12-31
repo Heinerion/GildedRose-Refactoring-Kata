@@ -40,9 +40,9 @@ class GildedRoseTest {
 
     @Test
     void brieOfHighQualityStaysTheSame() {
-        Item[] items = new Item[]{new Item(Items.AGED_BRIE, 0, 99)};
+        Item[] items = new Item[]{new Item(Items.AGED_BRIE, 0, Quality.MAX)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals(99, items[0].quality);
+        assertEquals(Quality.MAX, items[0].quality);
     }
 }
