@@ -135,4 +135,22 @@ class GildedRoseRequirementsTest {
 
         assertEquals(0, items[0].quality);
     }
+
+    @Test
+    void shouldDecreaseConjuredItemsTwiceAsFast_beforeSellDate() {
+        Item[] items = new Item[]{new Item(Items.CONJURED_PREFIX + " Potion", 1, 50)};
+
+        new GildedRose(items).updateQuality();
+
+        assertEquals(48, items[0].quality);
+    }
+
+    @Test
+    void shouldDecreaseConjuredItemsTwiceAsFast_afterSellDate() {
+        Item[] items = new Item[]{new Item(Items.CONJURED_PREFIX + " Potion", 0, 50)};
+
+        new GildedRose(items).updateQuality();
+
+        assertEquals(46, items[0].quality);
+    }
 }

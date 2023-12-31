@@ -13,6 +13,9 @@ public final class ItemUpdaterFinder {
         if (Items.isSulfuras(item)) {
             return new SulfurasUpdater();
         }
+        if (Items.isConjured(item)) {
+            return new ConjuredUpdater();
+        }
         return new DefaultUpdater();
     }
 }
