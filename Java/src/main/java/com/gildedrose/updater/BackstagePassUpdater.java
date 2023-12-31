@@ -9,18 +9,18 @@ final class BackstagePassUpdater implements ItemUpdater {
 
     private final DefaultUpdater defaultUpdater = new DefaultUpdater();
 
-    public int determineNewQuality(int quality, int sellIn) {
-        return Math.min(
-            Quality.MAX,
-            quality + determineLastMinuteBonus(sellIn));
+    public int determineQuality(int quality, int sellIn) {
+        return sellIn < EXPIRED_DAYS
+            ? Quality.MIN
+            : Math.min(Quality.MAX, quality + determineLastMinuteBonus(sellIn));
     }
 
     private static int determineLastMinuteBonus(int daysLeft) {
-        if (daysLeft <= TRIPLE_QUALITY_DAYS) {
+        if (daysLeft < TRIPLE_QUALITY_DAYS) {
             return 3;
         }
 
-        if (daysLeft <= DOUBLE_QUALITY_DAYS) {
+        if (daysLeft < DOUBLE_QUALITY_DAYS) {
             return 2;
         }
 
@@ -30,12 +30,5 @@ final class BackstagePassUpdater implements ItemUpdater {
     @Override
     public int determineSellInDecrease() {
         return defaultUpdater.determineSellInDecrease();
-    }
-
-    @Override
-    public int determineQualityBySellIn(int quality, int sellIn) {
-        return sellIn >= EXPIRED_DAYS
-            ? quality
-            : Quality.MIN;
     }
 }

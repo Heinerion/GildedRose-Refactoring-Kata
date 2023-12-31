@@ -2,24 +2,10 @@ package com.gildedrose.updater;
 
 import com.gildedrose.Quality;
 
-final class DefaultUpdater implements ItemUpdater {
-    public int determineNewQuality(int quality, int sellIn) {
+final class DefaultUpdater extends BoundedUpdater {
+    protected int calculateQuality(int quality, int factor) {
         return quality > Quality.MIN
-            ? quality - 1
+            ? quality - factor
             : quality;
-    }
-
-    @Override
-    public int determineSellInDecrease() {
-        return 1;
-    }
-
-    @Override
-    public int determineQualityBySellIn(int quality, int sellIn) {
-        if (sellIn >= 0) {
-            return quality;
-        }
-
-        return determineNewQuality(quality, sellIn);
     }
 }
